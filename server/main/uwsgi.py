@@ -29,7 +29,7 @@ def main():
         http_server.listen(5000)
         IOLoop.instance().start()
 
-models.init_engine(config.DB_PATH, echo=False)
+models.init_engine(config.DB_PATH, pool_recycle=1)
 
 def test_dataset():
     from uuid import uuid4
