@@ -1,0 +1,10 @@
+.container {
+    position: relative;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    top: 95vh;
+    height: 5vh;
+}

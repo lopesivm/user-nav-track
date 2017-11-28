@@ -1,0 +1,31 @@
+{% extends 'base_template.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <br>
+            <h3>Welcome to User Navigation Tracking</h3>
+            <p>
+                The table below lists users that have sent their contact information, allowing us to correctly track
+                their navigation. Click on the desired row to see more details.
+            </p>
+            <br>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Users</th>
+                        <th>Last access</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        {% set last_access = user | last_access %}
+                        <tr onclick=window.location="{{ url_for('admin.details', uuid=user.uuid) }}">
+                            <td>{{ user.email }}</td>
+                            <td>{{ last_access.local_time | time_format }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

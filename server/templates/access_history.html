@@ -1,0 +1,37 @@
+{% extends 'base_template.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <br>
+            <row>
+                <div class="col-sm-12">
+                    <h3>Navigation Tracking Details</h3>
+                    <h4>{{ user.email }}</h4>
+                    <p>
+                        The table below lists all pages accessed by {{ user.email }}, along with the time when it was
+                        accessed.
+                    </p>
+                </div>
+            </row>
+            <br>
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>URL</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for access in user.accesses %}
+                        <tr>
+                            <td>{{ access.page.title }}</td>
+                            <td>{{ access.page.url }}</td>
+                            <td>{{ access.local_time | time_format }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
