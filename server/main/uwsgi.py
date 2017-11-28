@@ -6,13 +6,13 @@ import config
 import models
 import utils
 
+app = Flask(__name__, static_folder='../static', template_folder='../templates' )
+api = Api(app)
+cors = CORS(app, resources={r'/*': {'origins': '*'}})
+
 def main():
     from controllers import admin_panel
     from controllers.tracking import TrackingService, EmailRegistryService
-
-    app = Flask(__name__, static_folder='../static', template_folder='../templates' )
-    api = Api(app)
-    cors = CORS(app, resources={r'/*': {'origins': '*'}})
 
     api.add_resource(TrackingService, '/user/<uuid>/track')
     api.add_resource(EmailRegistryService, '/user/<uuid>/email')
