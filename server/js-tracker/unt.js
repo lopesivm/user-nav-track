@@ -50,7 +50,7 @@ function registerEmail() {
 }
 
 function UNT(force_addr) {
-    var default_server_addr = 'http://localhost:5000';
+    var default_server_addr = 'https://limitless-depths-81882.herokuapp.com';
     server_addr = (typeof force_addr !== 'undefined' && force_addr) ? force_addr : default_server_addr;
     var title = document.title;
     var url = document.location.href;
