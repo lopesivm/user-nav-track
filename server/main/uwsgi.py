@@ -8,7 +8,7 @@ import utils
 
 def main():
     from controllers import admin_panel
-    from controllers.tracking import TrackingService
+    from controllers.tracking import TrackingService, EmailRegistryService
 
     app = Flask(__name__, static_folder='../static', template_folder='../templates' )
     api = Api(app)
