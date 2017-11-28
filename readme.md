@@ -44,9 +44,11 @@ UNT can be used on any website. To do so, one has to simply import the plugin (`
 1. Copy the ```unt.js``` file to the static/js/ folder of the website
 2. Import the plugin by adding the following line at the end of the <body> tag: ```<script src="static/js/unt.js"></script>``` (the path might be different if running on different settings)
 3. Instantiate the plugin passing the target server by adding the following lines below the script import, replacing the *<server_address>* with your own:
-```    <script>
+```
+    <script>
         UNT(*<server_address>*);
-    </script>```
+    </script>
+```
 
 ### Changing default plugin server
 
@@ -74,3 +76,6 @@ There are two datetimes being saved for the access logs: **local_time** (the tim
 They might differ, even on the same timezone, therefore the need to store both.
 Currently, only local_time is in use on the dashboard.
 
+## Tests
+
+Due to the lack of time, as Heroku proved to be a challenge to get the database to work properly under forked processes, no tests are available at the moment.
